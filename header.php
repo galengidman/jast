@@ -3,9 +3,11 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php jast_title(); ?></title>
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
+	<meta name="viewport" content="width=device-width">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<?php wp_head(); ?>
 </head>
