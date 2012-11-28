@@ -31,7 +31,7 @@
 
 	<?php else: ?>
 
-		<p>No entries found.</p>
+		<p class="no-entries-found">No entries found.</p>
 
 	<?php endif; ?>
 

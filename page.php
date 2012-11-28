@@ -3,11 +3,11 @@
 <div id="primary">
 
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	
+
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<header class="entry-header">
-				<h1><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute( 'echo=0' ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+				<h1 title="<?php the_title_attribute(); ?>"><?php the_title(); ?></h1>
 				<div class="published-on"><?php jast_published_on(); ?></div>
 			</header>
 
@@ -20,10 +20,10 @@
 			</footer>
 
 		</article>
-	
+
 	<?php endwhile; else: ?>
 
-		<p>No entries found.</p>
+		<p class="no-entries-found">No entries found.</p>
 
 	<?php endif; ?>
 

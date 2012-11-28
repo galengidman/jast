@@ -23,7 +23,7 @@
 
 	<?php endwhile; else: ?>
 
-		<p><?php _e( 'No entries found.', 'jast' ); ?></p>
+		<p class="no-entries-found">No entries found.</p>
 
 	<?php endif; ?>
 
