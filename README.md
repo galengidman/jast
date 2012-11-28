@@ -1,5 +1,3 @@
-# Jast
-
 ## The rundown
 Jast is a WordPress theme framework all about simplicity. Just what you need, none of what you don't.
 
