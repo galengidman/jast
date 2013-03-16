@@ -1,23 +1,19 @@
 <?php get_header(); ?>
 
-<div id="primary">
+<div class="primary">
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<header class="entry-header">
-				<h1 title="<?php the_title_attribute(); ?>"><?php the_title(); ?></h1>
-				<div class="published-on"><?php jast_published_on(); ?></div>
+				<h1><?php the_title(); ?></h1>
 			</header>
 
 			<div class="entry-body">
-				<?php jast_entry_body( 'content' ); ?>
+				<?php the_content(); ?>
+				<?php wp_link_pages(); ?>
 			</div>
-
-			<footer class="entry-footer">
-				<?php jast_post_meta(); ?>
-			</footer>
 
 		</article>
 
