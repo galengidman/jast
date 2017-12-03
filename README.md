@@ -21,12 +21,13 @@ Git clone or download into the `/wp-content/themes/` directory.
 - `JAST` → `YOURTHEME`
 - `Jast` → `Your Theme`
 
-## Suggestions
+## Suggestions & Notes
 
 - Typically I put my theme support, widget area registration, style/script enqueueing and similar setup items in `functions.php`. Any custom template tags would go in `includes/template-tags.php`, with that being included at the top of `functions.php`. If I have to register Customizer settings, I'd create a new file in `includes/customizer.php` and include from `functions.php` as well. This pattern goes for most any vein of work that would typically placed in `functions.php`.
 - All strings are output through WordPress's gettext functions, but I didn't include a POT file. This is because GlotPress/translate.wordpress.org now allow .org themes to be translated without a POT file, and multilingual plugins like Polylang and WPML don't require POT files either. If you do need to generate a POT file, I recommend [WPGulp](https://github.com/ahmadawais/WPGulp).
 - This theme does not include a `page.php` or `single.php` template. In their place is a `singular.php` template that serves as a catch-all template for any singular post of any post type (`post`, `page`, `custom_post_type`, etc). Obviously, modify as needed.
 - Files such as `index.php` intentionally go in and out of PHP on each new line with the assumption that you will be adding your own markup throughout.
+- Jast includes PHP syntax that will not work with PHP < 5.4.
 
 ## License
 
