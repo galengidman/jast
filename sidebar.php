@@ -1,3 +1,3 @@
-<div class="secondary">
-	<?php dynamic_sidebar('sidebar'); ?>
+<div class="sidebar">
+	<?php dynamic_sidebar( 'sidebar' ); ?>
 </div>

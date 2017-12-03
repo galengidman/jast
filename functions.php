@@ -1,75 +1,62 @@
 <?php
 
-/**
- * Get things setup.
- */
+// Increment this every time you deploy new style or script changes to bust browser caches
+define( 'JAST_ASSET_VER', 1 );
 
-function jast_setup() {
+include get_template_directory() . '/includes/template-tags.php';
 
-	// register the sidebar
-	register_sidebar(array(
-		'name' => 'Sidebar',
-		'id' => 'sidebar',
-		'description' => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h2>',
-		'after_title' => '</h2>'
-	));
+add_action( 'after_setup_theme', function() {
 
-	// register nav menus
-	register_nav_menus(array(
-		'primary_meny' => 'Primary Menu Location'
-	));
+	// Replace 500 with whatever the width of your main content column
+	$GLOBALS['content_width'] = 500;
 
-	// get rid of the default [gallery] shortcode styles
-	add_filter('use_default_gallery_style', '__return_false');
+	load_theme_textdomain( 'jast' );
 
-	// load the threaded comment scripts if needed
-	function jast_comments_scripts() {
-		if (is_singular() && get_option('thread_comments')) {
-			wp_enqueue_script('comment-reply');
-		}
-	}
-	add_action('wp_head', 'jast_comments_scripts');
+	add_theme_support( 'automatic-feed-links' );
 
-}
+	add_theme_support( 'post-thumbnails' );
 
-add_action('init', 'jast_setup');
+	add_theme_support( 'title-tag' );
 
+	add_theme_support( 'html5' );
 
-/**
- * Context-sensitive <title> with customizable separator.
- */
+	register_nav_menus( [
+		'main' => esc_html__( 'Main Menu', 'jast' ),
+	] );
 
-function jast_title($sep = '|') {
-	wp_title($sep, true, 'right');
-	bloginfo('name');
-	$site_description = get_bloginfo('description', 'display');
-	if ($site_description && (is_home() || is_front_page())) {
-		echo " $sep $site_description";
-	}
-}
+} );
 
+add_action( 'wp_enqueue_scripts', function() {
 
-/**
- * Context-sensivive archive page titles.
- */
+	wp_enqueue_style(
+		'jast',
+		esc_url( get_template_directory_uri() . '/assets/css/jast.css' ),
+		[],
+		JAST_ASSET_VER
+	);
 
-function jast_archive_title() {
-	if (is_category()) {
-		echo 'Posts categorized ';
-		single_cat_title();
-	} elseif (is_tag()) {
-		echo 'Posts tagged ';
-		single_tag_title();
-	} elseif (is_day()) {
-		echo 'Archives for ' . get_the_date();
-	} elseif (is_month()) {
-		echo 'Archives for ' . get_the_date('F Y');
-	} elseif (is_year()) {
-		echo 'Archives for ' . get_the_date('Y');
-	} else {
-		echo 'Archives';
-	}
-}
+	wp_enqueue_script(
+		'jast',
+		esc_url( get_template_directory_uri() . '/assets/js/jast.js' ),
+		[ 'jquery' ],
+		JAST_ASSET_VER,
+		true // Output in footer for better performance
+	);
+
+} );
+
+add_action( 'widgets_init', function() {
+
+	$markup = [
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>'
+	];
+
+	register_sidebar( array_merge( $markup, [
+		'name' => esc_html__( 'Sidebar', 'jast' ),
+		'id'   => 'sidebar',
+	] ) );
+
+} );

@@ -1,7 +1,7 @@
-	</div>
-	<footer class="site-footer">
-		<p>Powered by <a href="http://wordpress.org/">WordPress</a> and <a href="http://github.com/galengidman/jast">Jast</a>.</p>
-	</footer>
+	</main>
+
+	<footer class="footer"></footer>
+
 	<?php wp_footer(); ?>
 </body>
 </html>
