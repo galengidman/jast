@@ -8,7 +8,7 @@ Jast is my attempt at a very simple starter theme. Think [underscores](https://g
 
 Git clone or download into the `/wp-content/themes/` directory.
 
-### Rename:
+#### Rename:
 
 - Theme folder `jast` → `yourtheme`
 - `assets/css/jast.css` → `assets/css/yourtheme.css`
