@@ -2,7 +2,7 @@
 
 <div id="comments">
 	<?php if ( have_comments() ) : ?>
-		<h2><?php comments_number() ?></h2>
+		<h2><?php comments_number(); ?></h2>
 
 		<?php the_comments_navigation(); ?>
 
