@@ -3,7 +3,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<p class="entry-meta">
-			<span><?php echo get_the_date(); ?></span>
+			<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
 			<span class="sep"></span>
 			<?php the_author_posts_link(); ?>
 			<span class="sep"></span>
