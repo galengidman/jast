@@ -6,7 +6,7 @@
 	<?php get_template_part( 'template-parts/entry', get_post_type() ); ?>
 <?php endwhile; ?>
 	<?php the_posts_pagination(); ?>
-<?php else: ?>
+<?php else : ?>
 	<?php echo wpautop( jast_nothing_found() ); ?>
 <?php endif; ?>
 
