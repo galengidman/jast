@@ -1,14 +1,7 @@
 <article <?php post_class( 'entry' ); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-		<p class="entry-meta">
-			<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
-			<span class="sep"></span>
-			<?php the_author_posts_link(); ?>
-			<span class="sep"></span>
-			<a href="<?php echo esc_url( get_comments_link() ); ?>"><?php comments_number(); ?></a>
-		</p>
+		<p class="entry-meta"><?php jast_entry_meta(); ?></p>
 	</header>
 
 	<div class="entry-content">
